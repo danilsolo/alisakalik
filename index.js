@@ -8,24 +8,34 @@ alice.use(loggingMiddleware({
 }))
 
 alice.welcome(async (ctx) => {
-    ctx.reply('Привет! Смотри, что я могу')
+    ctx.reply('Привет! Что хочешь?')
 })
 
-alice.command('дай совет', async (ctx) => {
-    ctx.reply('Make const not var')
+alice.command('курит калик?', async (ctx) => {
+    ctx.reply('давид')
 })
 
-alice.command(['билет в кино', 'что посмотреть', 'что показывают'], ctx => {
-    ctx.reply({
-        text: 'Есть «2001 a space odyssey»',
-        buttons: [button('Забронировать')]
-    })
-})
 
-alice.command(/(https?:\/\/[^\s]+)/g, ctx => ctx.reply('Matched a link!'))
+alice.command('купить слона', async (ctx) => {
+    const buyBtn = ctx.buttonBuilder
+        .text('Купить слона')
+        .url('example.com/buy')
+        .payload({buy: "slon"})
+        .shouldHide(true)
+        .get()
+
+    const replyMessage = ctx.replyBuilder
+        .text('Вы что, серьёзно?')
+        .tts('Вы что, серьё+зно?')
+        .addButton(buyBtn)
+        .get()
+    return ctx.reply(replyMessage)
+})
+// alice.command(/(https?:\/\/[^\s]+)/g, ctx => ctx.reply('Matched a link!'))
 
 alice.any(async (ctx) => {
-    ctx.reply('О чём это вы?')
+    // console.log(ctx.message);
+    ctx.reply(ctx.message)
 })
 
 alice.listen('/', 3000, callback => console.log('privetik'))
