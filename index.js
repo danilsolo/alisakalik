@@ -28,4 +28,4 @@ alice.any(async (ctx) => {
     ctx.reply('О чём это вы?')
 })
 
-alice.listen('/', 3000)
+alice.listen('/', 3000, callback => console.log('privetik'))
