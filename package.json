@@ -1,0 +1,22 @@
+{
+  "name": "alisakalik",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danilsolo/alisakalik.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/danilsolo/alisakalik/issues"
+  },
+  "homepage": "https://github.com/danilsolo/alisakalik#readme",
+  "dependencies": {
+    "yandex-dialogs-sdk": "^1.4.6"
+  }
+}
